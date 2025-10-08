@@ -1,0 +1,165 @@
+/* ===== BUTTON COMPONENT STYLES ===== */
+/* Import global variables */
+@import "../../styles/variables.scss";
+
+/* === BASE BUTTON STYLES === */
+.btn {
+  /* Reset default button styles */
+  border: none;
+  outline: none;
+  background: none;
+  margin: 0;
+  font: inherit;
+  text-decoration: none;
+
+  /* Base button styling */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Space between icon and text */
+  cursor: pointer;
+
+  /* Use CSS variables for easy theming */
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  transition: var(--transition-normal);
+
+  /* Focus styles for accessibility */
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* Disabled state */
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* === BUTTON VARIANTS === */
+  /* Primary button - main action */
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+
+  /* Secondary button - less important action */
+  &--secondary {
+    background-color: transparent;
+    color: var(--color-gray-600);
+    border: 1px solid var(--color-secondary);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-secondary);
+      color: var(--color-white);
+    }
+  }
+
+  /* Success button - positive actions */
+  &--success {
+    background-color: var(--color-success);
+    color: var(--color-white);
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+  }
+
+  /* Danger button - destructive actions */
+  &--danger {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+    }
+  }
+
+  /* Ghost button - minimal styling */
+  &--ghost {
+    background-color: transparent;
+    color: var(--color-primary);
+
+    &:hover:not(:disabled) {
+      background-color: rgba(59, 130, 246, 0.1); /* Light blue background */
+    }
+  }
+
+  /* === BUTTON SIZES === */
+  &--small {
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    border-radius: var(--radius-sm);
+  }
+
+  &--large {
+    padding: var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    border-radius: var(--radius-lg);
+  }
+
+  &--extra-large {
+    padding: var(--spacing-xl);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-xl);
+  }
+
+  /* === BUTTON MODIFIERS === */
+  /* Full width button */
+  &--full-width {
+    width: 100%;
+  }
+
+  /* Rounded button */
+  &--rounded {
+    border-radius: 9999px; /* Fully rounded */
+  }
+
+  /* Loading state */
+  &--loading {
+    position: relative;
+    color: transparent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 1s linear infinite;
+    }
+  }
+}
+
+/* === ANIMATIONS === */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* === ICON STYLING === */
+/* Style icons inside buttons */
+.btn svg {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+}
