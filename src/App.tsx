@@ -1,9 +1,15 @@
-import { Button, Avatar } from ".";
+import { Button, Avatar, Menu, MenuButton, MenuDropdown, MenuItem } from ".";
 import { AiFillApple } from "react-icons/ai";
 import { useState, useEffect } from "react";
 
 function App() {
   const [avatarImgs, setAvatarImgs] = useState<string[]>([""]);
+
+  const [open, setOpen] = useState(false);
+
+  function toggle() {
+    setOpen((prevOpen) => !prevOpen);
+  }
 
   // Load saved images from localStorage on component mount
   useEffect(() => {
@@ -59,9 +65,17 @@ function App() {
 
   // Clear uploaded image
   const clearImage = () => {
-    localStorage.removeItem("avatarImage");
+    localStorage.removeItem("avatarImages");
     setAvatarImgs([""]);
   };
+
+  const items = [
+    { name: "BBC News", url: "https://www.bbc.com/news" },
+    { name: "CNN", url: "https://www.cnn.com" },
+    { name: "Reuters", url: "https://www.reuters.com" },
+    { name: "The Guardian", url: "https://www.theguardian.com" },
+    { name: "Associated Press", url: "https://apnews.com" },
+  ];
 
   return (
     <div style={{ padding: "2rem", maxWidth: "800px", margin: "0 auto" }}>
@@ -151,6 +165,33 @@ function App() {
           <Avatar bgColor="blue">YS</Avatar>
           <Avatar bgColor="navy" imgSrc={avatarImgs[1]}></Avatar>
           <Avatar bgColor="green"></Avatar>
+        </div>
+      </section>
+      {/* === MENU VARIANTS === */}
+      <section style={{ marginTop: "2rem" }}>
+        <h2 style={{ marginBottom: "1rem" }}>Menu Variants</h2>
+        <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+            flexWrap: "wrap",
+            alignItems: "center",
+          }}
+        >
+          <Menu>
+            <MenuButton onClick={toggle}>Menu</MenuButton>
+            {open && (
+              <MenuDropdown>
+                {items.map((item, index) => (
+                  <MenuItem key={index}>
+                    <a href={item.url} target="_blank">
+                      {item.name}
+                    </a>
+                  </MenuItem>
+                ))}
+              </MenuDropdown>
+            )}
+          </Menu>
         </div>
       </section>
     </div>

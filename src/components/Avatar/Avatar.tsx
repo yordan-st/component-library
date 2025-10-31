@@ -7,7 +7,12 @@ export interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   bgColor?: string;
 }
 
-function Avatar({ children, imgSrc, bgColor, ...rest }: AvatarProps) {
+export default function Avatar({
+  children,
+  imgSrc,
+  bgColor,
+  ...rest
+}: AvatarProps) {
   const classNames = ["avatar", bgColor].join(" ").trim();
 
   return (
@@ -22,5 +27,3 @@ function Avatar({ children, imgSrc, bgColor, ...rest }: AvatarProps) {
     </div>
   );
 }
-
-export default Avatar;

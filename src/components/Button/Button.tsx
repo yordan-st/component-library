@@ -52,7 +52,7 @@ export interface ButtonProps
  *   Full Width Rounded
  * </Button>
  */
-function Button({
+export default function Button({
   variant = "primary",
   size = "medium",
   className = "",
@@ -86,5 +86,3 @@ function Button({
     </button>
   );
 }
-
-export default Button;
