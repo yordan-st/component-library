@@ -5,3 +5,4 @@
 
 // This will be the main entry point for your component library
 export { default as Button } from "./Button";
+export { default as Avatar } from "./Avatar";

@@ -59,17 +59,16 @@ function Button({
   children,
   loading = false,
   disabled,
-  ...props
+  ...rest
 }: ButtonProps) {
   // Build BEM class names
-  const baseClass = "btn";
-  const variantClass = `${baseClass}--${variant}`;
-  const sizeClass = `${baseClass}--${size}`;
-  const loadingClass = loading ? `${baseClass}--loading` : "";
+  const variantClass = `btn--${variant}`;
+  const sizeClass = `btn--${size}`;
+  const loadingClass = loading ? `btn--loading` : "";
 
   // Combine all classes
   const buttonClasses = [
-    baseClass,
+    "btn",
     variantClass,
     sizeClass,
     loadingClass,
@@ -81,8 +80,7 @@ function Button({
   return (
     <button
       className={buttonClasses}
-      disabled={disabled || loading} // Disable when loading
-      {...props} // Spread remaining props (onClick, onFocus, etc.)
+      {...rest} // Spread remaining props (onClick, onFocus, etc.)
     >
       {children}
     </button>
