@@ -5,12 +5,6 @@ import { useState, useEffect } from "react";
 function App() {
   const [avatarImgs, setAvatarImgs] = useState<string[]>([""]);
 
-  const [open, setOpen] = useState(false);
-
-  function toggle() {
-    setOpen((prevOpen) => !prevOpen);
-  }
-
   // Load saved images from localStorage on component mount
   useEffect(() => {
     const savedImages = localStorage.getItem("avatarImages");
@@ -136,6 +130,7 @@ function App() {
               display: "flex",
               gap: "1rem",
               alignItems: "center",
+              flexWrap: "wrap",
             }}
           >
             <input
@@ -179,18 +174,16 @@ function App() {
           }}
         >
           <Menu>
-            <MenuButton onClick={toggle}>Menu</MenuButton>
-            {open && (
-              <MenuDropdown>
-                {items.map((item, index) => (
-                  <MenuItem key={index}>
-                    <a href={item.url} target="_blank">
-                      {item.name}
-                    </a>
-                  </MenuItem>
-                ))}
-              </MenuDropdown>
-            )}
+            <MenuButton>Menu</MenuButton>
+            <MenuDropdown>
+              {items.map((item, index) => (
+                <MenuItem key={index}>
+                  <a href={item.url} target="_blank">
+                    {item.name}
+                  </a>
+                </MenuItem>
+              ))}
+            </MenuDropdown>
           </Menu>
         </div>
       </section>

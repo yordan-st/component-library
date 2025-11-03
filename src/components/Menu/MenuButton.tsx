@@ -1,10 +1,22 @@
+import { useContext } from "react";
+import { MenuContext } from "./Menu";
 import Button from "../Button";
 
 export interface MenuButtonProps {
   children?: React.ReactNode;
-  onClick?: () => void;
 }
 
-export default function MenuButton({ children, onClick }: MenuButtonProps) {
-  return <Button onClick={onClick}>{children}</Button>;
+export default function MenuButton({ children }: MenuButtonProps) {
+  const { toggle, open, menuId } = useContext(MenuContext);
+
+  return (
+    <Button
+      onClick={toggle}
+      aria-expanded={open}
+      aria-haspopup="true"
+      aria-controls={menuId}
+    >
+      {children}
+    </Button>
+  );
 }
