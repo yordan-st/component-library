@@ -7,16 +7,7 @@ export interface MenuButtonProps {
 }
 
 export default function MenuButton({ children }: MenuButtonProps) {
-  const { toggle, open, menuId } = useContext(MenuContext);
+  const { toggleOpen } = useContext(MenuContext);
 
-  return (
-    <Button
-      onClick={toggle}
-      aria-expanded={open}
-      aria-haspopup="true"
-      aria-controls={menuId}
-    >
-      {children}
-    </Button>
-  );
+  return <Button onClick={toggleOpen}>{children}</Button>;
 }
