@@ -7,6 +7,7 @@
 export { default as Button } from "./Button";
 export { default as Avatar } from "./Avatar";
 export { default as Menu, MenuButton, MenuDropdown, MenuItem } from "./Menu";
+export { default as Toggle } from "./Toggle";
 
 // Export all types
 export type { ButtonProps } from "./Button";
