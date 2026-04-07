@@ -14,8 +14,7 @@ import "./Button.scss";
  * - Icon support
  */
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Button style variant */
   variant?: "primary" | "secondary" | "success" | "danger" | "ghost";
 
@@ -80,6 +79,7 @@ export default function Button({
   return (
     <button
       className={buttonClasses}
+      disabled={disabled || loading}
       {...rest} // Spread remaining props (onClick, onFocus, etc.)
     >
       {children}

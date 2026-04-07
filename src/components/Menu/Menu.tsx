@@ -27,7 +27,7 @@ export { MenuContext };
 export default function Menu({ children, onOpen }: MenuProps) {
   // use the useToggle hook to manage the open state of the menu
   const { on: open, toggle: toggleOpen } = useToggle({
-    initialValue: true,
+    initialValue: false,
     onToggle: onOpen,
   });
 

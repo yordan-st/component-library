@@ -1,0 +1,47 @@
+/* ===== BADGE COMPONENT STYLES ===== */
+/* Import global variables */
+@import "../../styles/variables.scss";
+/* === BASE BADGE STYLES === */
+.badge {
+  /* Base badge styling */
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  /* Use CSS variables for easy theming */
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-800);
+  transition: var(--transition-normal);
+  /* === BADGE VARIANTS === */
+  /* Primary badge - main highlight */
+
+  &--neutral {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  /* Success badge - positive action */
+  &--success {
+    background-color: var(--color-success);
+    color: var(--color-white);
+  }
+  /* Danger badge - negative action */
+  &--danger {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+  }
+  /* Warning badge - cautionary action */
+  &--warning {
+    background-color: var(--color-warning);
+    color: var(--color-white);
+  }
+  /* Info badge - informational action */
+  &--info {
+    background-color: var(--color-info);
+    color: var(--color-white);
+  }
+}

@@ -1,6 +1,7 @@
 import { Button, Avatar, Menu, MenuButton, MenuDropdown, MenuItem } from ".";
 import { AiFillApple } from "react-icons/ai";
 import { useState, useEffect } from "react";
+import Badge from "./components/Badge";
 
 function App() {
   const [avatarImgs, setAvatarImgs] = useState<string[]>([""]);
@@ -109,7 +110,6 @@ function App() {
           </Button>
         </div>
       </section>
-
       {/* === AVATAR VARIANTS === */}
       <section style={{ marginTop: "2rem" }}>
         <h2 style={{ marginBottom: "1rem" }}>Avatar Variants</h2>
@@ -185,6 +185,20 @@ function App() {
               ))}
             </MenuDropdown>
           </Menu>
+        </div>
+      </section>
+      {/* === BUTTON VARIANTS === */}
+      <section style={{ marginTop: "2rem" }}>
+        <h2 style={{ marginBottom: "1rem" }}>Button Variants</h2>
+        <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+            flexWrap: "wrap",
+            alignItems: "baseline",
+          }}
+        >
+          <Badge>Test</Badge>
         </div>
       </section>
     </div>
